@@ -50,6 +50,7 @@ function submitPin() {
     return;
   } else if (pinNumber == typedNumber) {
     showSuccess();
+    pinInput.value = '';
     actionLeft = 3;
   } else {
     actionLeft--;
@@ -58,8 +59,6 @@ function submitPin() {
   }
 
   actionLeftBox.innerText = actionLeft;
-  // clear input
-  pinInput.value = '';
   typedNumberInput.value = '';
 }
 
