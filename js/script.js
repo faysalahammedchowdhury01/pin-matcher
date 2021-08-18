@@ -40,22 +40,31 @@ function submitPin() {
   const pinNumber = pinInput.value;
   const typedNumber = typedNumberInput.value;
 
+  // if typed input  is black
   if (typedNumber == '') {
     failMessage.innerText = '❌ Input is emplty!!';
     showError();
     return;
-  } else if (actionLeft < 1) {
+  }
+  // if 0 action remaining
+  else if (actionLeft < 1) {
     failMessage.innerText = '❌ You have 0 attempts remaining. Try again later';
     showError();
     return;
-  } else if (pinNumber == typedNumber) {
+  }
+  // if PIN matched
+  else if (pinNumber == typedNumber) {
     showSuccess();
     pinInput.value = '';
     actionLeft = 3;
-  } else {
+    actionLeftBox.parentNode.style.display = 'none';
+  }
+  // If the PIN does not match
+  else {
     actionLeft--;
     failMessage.innerText = "❌ Pin Didn't Match, Please try again";
     showError();
+    actionLeftBox.parentNode.style.display = 'block';
   }
 
   actionLeftBox.innerText = actionLeft;
