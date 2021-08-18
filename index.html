@@ -20,7 +20,7 @@
             <!-- generate pin -->
             <div class="col-lg-6">
               <div class="bg-navy-blue p-5 h-100">
-                <input type="text" readonly />
+                <input type="text" placeholder="Generate PIN" readonly />
                 <div
                   style="height: 400px"
                   class="d-flex align-items-center justify-content-center"
@@ -28,7 +28,7 @@
                   <button id="generate-pin">
                     Generate
                     <br />
-                    Pin
+                    PIN
                   </button>
                 </div>
               </div>
@@ -36,7 +36,11 @@
             <!-- type number -->
             <div class="col-lg-6">
               <div class="bg-navy-blue p-5">
-                <input type="text" readonly />
+                <input
+                  type="text"
+                  placeholder="Enter your 4 digit PIN"
+                  readonly
+                />
                 <div class="buttons">
                   <button>9</button>
                   <button>8</button>
@@ -53,7 +57,7 @@
                 </div>
                 <button id="submit-btn">Submit</button>
                 <div class="action-left">
-                  <span id="action-left">3</span> try left
+                  You have <span id="action-left">3</span> attempts remaining
                 </div>
               </div>
             </div>
