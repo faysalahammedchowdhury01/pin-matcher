@@ -39,7 +39,6 @@ function displayTypedPin(event) {
 function submitPin() {
   const pinNumber = pinInput.value;
   const typedNumber = typedNumberInput.value;
-  actionLeftBox.innerText = actionLeft;
 
   // if typed input  is black
   if (typedNumber == '') {
@@ -52,7 +51,6 @@ function submitPin() {
     failMessage.innerText =
       '❌ You have no attempts remaining. Try again later';
     showError();
-    actionLeftBox.innerText = 'no';
     return;
   }
   // if PIN matched
@@ -70,6 +68,7 @@ function submitPin() {
     showError();
   }
 
+  actionLeftBox.innerText = actionLeft;
   typedNumberInput.value = '';
 }
 
