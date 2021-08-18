@@ -62,9 +62,9 @@ function submitPin() {
   // If the PIN does not match
   else {
     actionLeft--;
+    actionLeftBox.parentNode.style.display = 'block';
     failMessage.innerText = "❌ Pin Didn't Match, Please try again";
     showError();
-    actionLeftBox.parentNode.style.display = 'block';
   }
 
   actionLeftBox.innerText = actionLeft;
