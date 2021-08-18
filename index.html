@@ -3,13 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title -->
     <title>Pin Generator</title>
+    <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
       crossorigin="anonymous"
     />
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -20,12 +23,17 @@
             <!-- generate pin -->
             <div class="col-lg-6">
               <div class="bg-navy-blue p-5 h-100">
-                <input type="text" placeholder="Generate PIN" readonly />
+                <input
+                  id="pin-input"
+                  type="text"
+                  placeholder="Generate PIN"
+                  readonly
+                />
                 <div
                   style="height: 400px"
                   class="d-flex align-items-center justify-content-center"
                 >
-                  <button id="generate-pin">
+                  <button onclick="displayPin()" id="generate-pin">
                     Generate
                     <br />
                     PIN
@@ -37,11 +45,12 @@
             <div class="col-lg-6">
               <div class="bg-navy-blue p-5">
                 <input
+                  id="typed-numbers-input"
                   type="text"
                   placeholder="Enter your 4 digit PIN"
                   readonly
                 />
-                <div class="buttons">
+                <div onclick="displayTypedPin(event)" class="buttons">
                   <button>9</button>
                   <button>8</button>
                   <button>7</button>
@@ -55,22 +64,24 @@
                   <button>0</button>
                   <button>C</button>
                 </div>
-                <button id="submit-btn">Submit</button>
+                <button onclick="submitPin()" id="submit-btn">Submit</button>
                 <div class="action-left">
                   You have <span id="action-left">3</span> attempts remaining
                 </div>
               </div>
             </div>
           </div>
-          <!-- notify -->
-          <div class="notify">
-            <div id="fail">❌ Pin Didn't Match, Please try again</div>
-            <div id="success">
-              ✅ Pin Matched... Secret door is opening for you
-            </div>
-          </div>
         </div>
       </section>
     </main>
+
+    <!-- notify -->
+    <div class="notify">
+      <div id="fail">❌ Pin Didn't Match, Please try again</div>
+      <div id="success">✅ Pin Matched... Secret door is opening for you</div>
+    </div>
+
+    <!-- JS File -->
+    <script src="js/script.js"></script>
   </body>
 </html>

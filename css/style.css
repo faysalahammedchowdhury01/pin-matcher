@@ -81,21 +81,20 @@ input:focus {
 .notify div {
   width: 350px;
   background-color: rgba(255, 255, 255, 0.5);
-  margin: 30px auto 0 auto;
   text-align: center;
   padding: 10px;
   color: #ffffff;
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -30px);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(30px);
   transition: all 0.3s ease;
 }
 
 .notify div.show {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  transform: translate(-50%, 0);
 }
