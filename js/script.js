@@ -40,22 +40,19 @@ function submitPin() {
   const pinNumber = pinInput.value;
   const typedNumber = typedNumberInput.value;
 
-  // if typed input  is black
+  // if typed input is blank
   if (typedNumber == '') {
-    failMessage.innerText = '❌ Input is emplty!!';
-    showError();
+    showError('Input is emplty!!');
     return;
   }
   // if 0 action remaining
   else if (actionLeft < 1) {
-    failMessage.innerText =
-      '❌ You have no attempts remaining. Try again later';
-    showError();
+    showError('You have no attempts remaining. Try again later');
     return;
   }
   // if PIN matched
   else if (pinNumber == typedNumber) {
-    showSuccess();
+    showSuccess('Pin Matched... Secret door is opening for you');
     pinInput.value = '';
     actionLeft = 3;
     actionLeftBox.parentNode.style.display = 'none';
@@ -64,24 +61,26 @@ function submitPin() {
   else {
     actionLeft--;
     actionLeftBox.parentNode.style.display = 'block';
-    failMessage.innerText = "❌ Pin Didn't Match, Please try again";
-    showError();
+    showError("Pin Didn't Match, Please try again");
   }
 
   actionLeftBox.innerText = actionLeft;
   typedNumberInput.value = '';
 }
 
-function showSuccess() {
-  successMessage.classList.add('show');
-  setTimeout(function () {
-    successMessage.classList.remove('show');
-  }, 2000);
+function showSuccess(text) {
+  successMessage.innerText = '✅ ' + text;
+  show(successMessage);
 }
 
-function showError() {
-  failMessage.classList.add('show');
+function showError(text) {
+  failMessage.innerText = '❌ ' + text;
+  show(failMessage);
+}
+
+function show(element) {
+  element.classList.add('show');
   setTimeout(function () {
-    failMessage.classList.remove('show');
+    element.classList.remove('show');
   }, 2000);
 }
